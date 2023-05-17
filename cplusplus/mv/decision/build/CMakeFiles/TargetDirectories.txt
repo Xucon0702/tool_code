@@ -1,0 +1,7 @@
+/mnt/f/work/Software_architecture/tools/cplusplus/mv/decision/build/CMakeFiles/targetSlot.dir
+/mnt/f/work/Software_architecture/tools/cplusplus/mv/decision/build/CMakeFiles/edit_cache.dir
+/mnt/f/work/Software_architecture/tools/cplusplus/mv/decision/build/CMakeFiles/rebuild_cache.dir
+/mnt/f/work/Software_architecture/tools/cplusplus/mv/decision/build/CMakeFiles/list_install_components.dir
+/mnt/f/work/Software_architecture/tools/cplusplus/mv/decision/build/CMakeFiles/install.dir
+/mnt/f/work/Software_architecture/tools/cplusplus/mv/decision/build/CMakeFiles/install/local.dir
+/mnt/f/work/Software_architecture/tools/cplusplus/mv/decision/build/CMakeFiles/install/strip.dir
