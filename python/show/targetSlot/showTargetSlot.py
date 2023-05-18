@@ -68,14 +68,14 @@ def showTargetSlot(plt):
 
     for content in file_contents_target_slot:
          str_split1 = content.decode().split(" ")
-         point0_x = str_split1[0]
-         point1_x = str_split1[2]
-         point2_x = str_split1[4]
-         point3_x = str_split1[6]
-         point0_y = str_split1[1]
-         point1_y = str_split1[3]
-         point2_y = str_split1[5]
-         point3_y = str_split1[7]
+         point0_x = float(str_split1[0])            #字符串强转为float
+         point1_x = float(str_split1[2])
+         point2_x = float(str_split1[4])
+         point3_x = float(str_split1[6])
+         point0_y = float(str_split1[1])
+         point1_y = float(str_split1[3])
+         point2_y = float(str_split1[5])
+         point3_y = float(str_split1[7])
          
          targetSlotX = np.array([point0_x,point1_x,point2_x,point3_x,point0_x])
          targetSlotY = np.array([point0_y,point1_y,point2_y,point3_y,point0_y])
@@ -83,17 +83,32 @@ def showTargetSlot(plt):
         # 静态显示一张
         #  plt.plot(targetSlotX, targetSlotY)
         # #  plt.plot(slot_psd_x, slot_psd_y)
-        #  plt.show()
+        #  plt.show()         
 
         # 动态显示变化情况
          plt.clf()  #清除上一幅图像
+
+        # 如果有清除的话,设置坐标相关的必须放在清除后面调用才能生效
+         plt.axis('equal')
+         plt.xlim([-10,10])
+         plt.xlabel('X_axis')
+         plt.ylabel('Y_axis')
+         #设置坐标轴刻度
+        #  my_x_ticks = np.arange(-10, 10, 1)
+        #  my_y_ticks = np.arange(-10, 10, 1)
+        #  plt.xticks(my_x_ticks)
+        #  plt.yticks(my_y_ticks)
+
+        #需要添加将图像始终显示在中间位置的处理
+
+        #显示
          plt.plot(targetSlotX,targetSlotY)
          plt.pause(0.1)  # 暂停0.01秒
          plt.ioff()  # 关闭画图的窗口
 
          cnt += 1
-         print(point0_x,point0_y,point1_x,point1_y,point2_x,point2_y,point3_x,point3_y,"showTargetSlot:",cnt,end='\n')
-
+        #  print(point0_x,point0_y,point1_x,point1_y,point2_x,point2_y,point3_x,point3_y,"showTargetSlot:",cnt,end='\n')
+         print(str_split1)        #python 变量直接打印可看类型 
         #  time.sleep(0.5)        #休眠
     plt.show()                    #结束循环时调用,否则可能闪退
     return 0
@@ -141,20 +156,9 @@ if __name__ == "__main__":
     f.closed
 
     # 显示
-    plt.figure('Targetslot')     
-    plt.axis('equal')       #x,y轴等比
+    plt.figure('Targetslot')         
 
-    #设置坐标轴范围
-    plt.xlim((-5, 5))
-    plt.ylim((-2, 2))
-    #设置坐标轴名称
-    plt.xlabel('xxxxxxxxxxx')
-    plt.ylabel('yyyyyyyyyyy')
-    #设置坐标轴刻度
-    my_x_ticks = np.arange(-5, 5, 0.5)
-    my_y_ticks = np.arange(-2, 2, 0.3)
-    plt.xticks(my_x_ticks)
-    plt.yticks(my_y_ticks)
+
 
     #设置左上角为坐标轴原点
     # ax = plt.gca()                                 #获取到当前坐标轴信息
@@ -164,6 +168,8 @@ if __name__ == "__main__":
 
 
     showTargetSlot(plt)
+
+    #添加车辆的显示
 
 
     print("end")
